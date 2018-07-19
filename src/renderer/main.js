@@ -9,9 +9,9 @@ import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import 'material-design-icons/iconfont/material-icons.css'
 
-Vue.use(VueMaterial)
-Vue.use(VueRouter)
-Vue.component('DialogSetting', DialogSetting)
+Vue.use(VueMaterial);
+Vue.use(VueRouter);
+Vue.component('DialogSetting', DialogSetting);
 const routes = [
     { path: '/tasks', component: TasksPage },
     { path: '/history', component: HistoryPage },

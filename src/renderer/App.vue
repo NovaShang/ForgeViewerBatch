@@ -1,6 +1,4 @@
 <template>
-  <div style="height=100%;">
-    <DialogSetting ref="dialogSetting"/>
     <md-app md-mode="fixed">
       <md-app-toolbar class="md-primary md-dense ">
         <md-tabs class="md-primary tabs">
@@ -18,9 +16,6 @@
           <md-button class="md-icon-button" @click="$refs.dialogSetting.show()">
             <md-icon>settings</md-icon>
           </md-button>
-          <md-button class="md-icon-button">
-            <md-icon>cloud_download</md-icon>
-          </md-button>
           <md-button class="md-raised greenbutton">
             <div class="icon-text-button">
               <md-icon>folder_open</md-icon>
@@ -30,10 +25,10 @@
         </div>
       </md-app-toolbar>
       <md-app-content>
+            <DialogSetting ref="dialogSetting"/>
         <router-view></router-view>
       </md-app-content>
     </md-app>
-  </div>
 </template>
 
 <script>
@@ -70,7 +65,7 @@ export default {
 .greenbutton {
   background-color: rgb(57, 165, 47) !important;
   color: white !important;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .icon-text-button {

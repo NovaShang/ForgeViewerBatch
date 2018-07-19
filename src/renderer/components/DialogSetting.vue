@@ -46,7 +46,6 @@ export default {
 
 .dialog{
   width: 400px;
-  transform: none;
   
 }
 </style>

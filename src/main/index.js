@@ -13,8 +13,8 @@ const winURL = process.env.NODE_ENV === 'development' ?
 function createWindow() {
     mainWindow = new BrowserWindow({
         height: 800,
-        width: 550,
-        minWidth: 500,
+        width: 450,
+        minWidth: 450,
         title: "Autodesk Forge 批量转换工具"
     });
     mainWindow.setMenuBarVisibility(false);
