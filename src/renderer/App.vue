@@ -1,37 +1,39 @@
 <template>
-  <md-app md-mode="fixed">
-    <md-app-toolbar class="md-primary md-dense ">
-      <md-tabs class="md-primary tabs">
-        <template slot="md-tab" slot-scope="{ tab }">
-          <div class="icon-text-button">
-            <md-icon>{{ tab.data.icon }}</md-icon>
-            <div class="text" v-if="tab.label"> {{ tab.label }}</div>
-            <div class="badge" v-if="tab.data.showBadge">{{ tab.data.badge }}</div>
-          </div>
-        </template>
-        <md-tab id="tasks" md-label="正在转换" :md-template-data="{ badge: 0,icon:'play_arrow',showBadge:true }" to="/tasks" ></md-tab>
-        <md-tab id="history" md-label="已完成" :md-template-data="{ icon:'history' }" to="/history" ></md-tab>
-      </md-tabs>
-      <div class="md-toolbar-section-end" >
-        <md-button class="md-icon-button" @click="showSetting=true">
-          <md-icon>settings</md-icon>
-        </md-button>
-        <md-button class="md-icon-button">
-          <md-icon>cloud_download</md-icon>
-        </md-button>
-        <md-button class="md-raised greenbutton">
-          <div class="icon-text-button">
-            <md-icon>folder_open</md-icon>
-            <div class="text">转换模型</div>
-          </div>
-        </md-button>
-      </div>
-    </md-app-toolbar>
-    <md-app-content>
-    <DialogSetting :showDialog.sync="showSetting"/>
+  <div style="height=100%;">
+    <DialogSetting ref="dialogSetting"/>
+    <md-app md-mode="fixed">
+      <md-app-toolbar class="md-primary md-dense ">
+        <md-tabs class="md-primary tabs">
+          <template slot="md-tab" slot-scope="{ tab }">
+            <div class="icon-text-button">
+              <md-icon>{{ tab.data.icon }}</md-icon>
+              <div class="text" v-if="tab.label"> {{ tab.label }}</div>
+              <div class="badge" v-if="tab.data.showBadge">{{ tab.data.badge }}</div>
+            </div>
+          </template>
+          <md-tab id="tasks" md-label="正在转换" :md-template-data="{ badge: 0,icon:'play_arrow',showBadge:true }" to="/tasks" ></md-tab>
+          <md-tab id="history" md-label="已完成" :md-template-data="{ icon:'history' }" to="/history" ></md-tab>
+        </md-tabs>
+        <div class="md-toolbar-section-end" >
+          <md-button class="md-icon-button" @click="$refs.dialogSetting.show()">
+            <md-icon>settings</md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+            <md-icon>cloud_download</md-icon>
+          </md-button>
+          <md-button class="md-raised greenbutton">
+            <div class="icon-text-button">
+              <md-icon>folder_open</md-icon>
+              <div class="text">转换模型</div>
+            </div>
+          </md-button>
+        </div>
+      </md-app-toolbar>
+      <md-app-content>
         <router-view></router-view>
-    </md-app-content>
-  </md-app>
+      </md-app-content>
+    </md-app>
+  </div>
 </template>
 
 <script>
@@ -50,7 +52,6 @@ export default {
 <style scoped>
 .md-app {
   border: 1px solid rgba(#000, 0.12);
-  font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
   height: 100%;
   user-select: none;
   background-color: #eee;
